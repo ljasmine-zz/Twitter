@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class TweetCell: UITableViewCell {
 
@@ -18,7 +19,13 @@ class TweetCell: UITableViewCell {
 
     var tweet: Tweet! {
         didSet {
-            
+            profileTitleLabel.text = tweet.username
+            usernameLabel.text = tweet.username
+            timestampLabel.text = "3h"
+            tweetMessageLabel.text = tweet.text
+            if let url = tweet.profileUrl {
+                profileImageView.setImageWith(url)
+            }
         }
     }
 
