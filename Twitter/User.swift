@@ -26,6 +26,7 @@ class User: NSObject {
 
         if let profileUrlString = profileUrlString {
             profileUrl = NSURL(string: profileUrlString)
+            print(profileUrlString)
         }
 
         tagline = dictionary["description"] as? NSString
