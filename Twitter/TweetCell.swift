@@ -16,14 +16,21 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var tweetMessageLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var favoriteCountLabel: UILabel!
+    @IBOutlet weak var retweetCountLabel: UILabel!
+
 
     var tweet: Tweet! {
         didSet {
-            profileTitleLabel.text = tweet.username
-            usernameLabel.text = tweet.username
+            profileTitleLabel.text = tweet.profileName
+            usernameLabel.text = "\(tweet.username!) ·"
             timestampLabel.text = "3h"
             tweetMessageLabel.text = tweet.text
+            favoriteCountLabel.text = "\(tweet.favoritesCount)"
+            retweetCountLabel.text = "\(tweet.retweetCount)"
+
             if let url = tweet.profileUrl {
+                print(url.absoluteString)
                 profileImageView.setImageWith(url)
             }
         }

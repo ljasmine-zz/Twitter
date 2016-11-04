@@ -84,10 +84,6 @@ class TwitterClient: BDBOAuth1SessionManager {
 
                 let dictionaries = response as! [NSDictionary]
                 let tweets = Tweet.tweetsWithArray(dictionaries: dictionaries)
-
-                for tweet in tweets {
-                    print ("\(tweet.text!)")
-                }
                 success(tweets)
             }, failure: { (task: URLSessionDataTask?, error: Error) in
                 failure(error)
