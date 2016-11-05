@@ -89,4 +89,13 @@ class TwitterClient: BDBOAuth1SessionManager {
                 failure(error)
         })
     }
+
+    func postTweet (text: String, success: @escaping () -> (), failure: @escaping (Error) -> ()) {
+
+        post("1.1/statuses/update.json", parameters: ["status": text], progress: nil, success: {(_: URLSessionDataTask, response: Any?) in
+            success()
+        }, failure: { (task: URLSessionDataTask?, error: Error) in
+            failure(error)
+        })
+    }
 }

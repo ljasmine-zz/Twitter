@@ -23,6 +23,9 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
 
+        let twitterLogo = UIImage(named: "Twitter_Logo_Blue")
+        navigationItem.titleView = UIImageView(image: twitterLogo)
+
         getTimeline()
 
         // Initialize a UIRefreshControl
@@ -69,6 +72,10 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBAction func onLogoutButton(_ sender: AnyObject) {
         TwitterClient.sharedInstance?.logout()
+    }
+
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

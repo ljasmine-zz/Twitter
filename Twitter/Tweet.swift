@@ -18,6 +18,10 @@ class Tweet: NSObject {
     var favoritesCount: Int = 0
     var profileUrl: URL?
 
+    static let characterLimit = 140
+    static let TWITTER_BLUE = UIColor(red: 29.0/255.0, green: 142.0/255.0, blue: 238.0/255.0, alpha: 1.0)
+
+
     init(dictionary: NSDictionary) {
         
         text = dictionary["text"] as? String
