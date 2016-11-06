@@ -27,7 +27,7 @@ class TweetCell: UITableViewCell {
         didSet {
             profileTitleLabel.text = tweet.profileName
             usernameLabel.text = "@\(tweet.username!) ·"
-            timestampLabel.text = "3h"
+            timestampLabel.text = "\(tweet.timestampString!)"
             tweetMessageLabel.text = tweet.text
             favoriteCountLabel.text = "\(tweet.favoritesCount)"
             retweetCountLabel.text = "\(tweet.retweetCount)"

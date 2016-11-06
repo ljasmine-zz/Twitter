@@ -13,6 +13,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var tweets: [Tweet]!
     var refreshControl: UIRefreshControl?
 
+    @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
@@ -74,10 +75,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         TwitterClient.sharedInstance?.logout()
     }
 
-    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tweets != nil {
             return tweets.count
@@ -93,7 +90,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         return cell
     }
-
 
     /*
     // MARK: - Navigation

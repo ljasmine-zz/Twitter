@@ -78,7 +78,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@TheMichaelMoran" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izt-Pl-JwO">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="@TheMichaelMoran" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izt-Pl-JwO">
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -141,15 +141,16 @@
                                                 <constraint firstItem="jwH-kp-WXX" firstAttribute="centerY" secondItem="izt-Pl-JwO" secondAttribute="centerY" id="4NW-31-4GQ"/>
                                                 <constraint firstItem="XC1-yb-w4E" firstAttribute="centerY" secondItem="8aN-a7-E7J" secondAttribute="centerY" id="5HH-GH-CTd"/>
                                                 <constraint firstItem="OoI-Px-5hp" firstAttribute="centerY" secondItem="8aN-a7-E7J" secondAttribute="centerY" id="7RM-tT-sck"/>
+                                                <constraint firstItem="Gmd-wy-tKf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XC1-yb-w4E" secondAttribute="trailing" constant="2" id="D24-W4-KbS"/>
+                                                <constraint firstItem="Gmd-wy-tKf" firstAttribute="leading" secondItem="o1Q-Dt-AQd" secondAttribute="trailing" constant="70" id="Dtb-QM-R1k"/>
                                                 <constraint firstItem="rgk-NR-NDw" firstAttribute="leading" secondItem="a05-1O-W4Y" secondAttribute="trailing" constant="8" id="H5u-6a-Wp5"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OoI-Px-5hp" secondAttribute="trailing" constant="8" id="LgP-g1-Af3"/>
                                                 <constraint firstItem="bL7-R2-4qA" firstAttribute="leading" secondItem="a05-1O-W4Y" secondAttribute="trailing" constant="8" id="Msq-Ql-UMH"/>
                                                 <constraint firstItem="jwH-kp-WXX" firstAttribute="leading" secondItem="izt-Pl-JwO" secondAttribute="trailing" constant="2" id="Mxy-bF-2Yf"/>
-                                                <constraint firstItem="izt-Pl-JwO" firstAttribute="leading" secondItem="rgk-NR-NDw" secondAttribute="trailing" constant="8" id="P9n-G1-Iws"/>
+                                                <constraint firstItem="izt-Pl-JwO" firstAttribute="leading" secondItem="rgk-NR-NDw" secondAttribute="trailing" constant="5" id="P9n-G1-Iws"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jwH-kp-WXX" secondAttribute="trailing" constant="8" id="PR4-on-g7p"/>
                                                 <constraint firstItem="8aN-a7-E7J" firstAttribute="top" secondItem="bL7-R2-4qA" secondAttribute="bottom" constant="8" id="SKE-8B-418"/>
                                                 <constraint firstItem="rgk-NR-NDw" firstAttribute="top" secondItem="RkS-BV-39B" secondAttribute="top" constant="8" id="UGK-YA-xFl"/>
-                                                <constraint firstItem="Gmd-wy-tKf" firstAttribute="leading" secondItem="XC1-yb-w4E" secondAttribute="trailing" constant="60" id="UuB-Tm-RcY"/>
                                                 <constraint firstItem="o1Q-Dt-AQd" firstAttribute="centerY" secondItem="8aN-a7-E7J" secondAttribute="centerY" id="Xkj-BK-Sy9"/>
                                                 <constraint firstItem="o1Q-Dt-AQd" firstAttribute="leading" secondItem="8aN-a7-E7J" secondAttribute="trailing" constant="60" id="Zbn-bE-LUg"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8aN-a7-E7J" secondAttribute="bottom" constant="5" id="c0C-Bt-FrM"/>
@@ -173,6 +174,7 @@
                                             <outlet property="timestampLabel" destination="jwH-kp-WXX" id="Lyz-Z7-Qod"/>
                                             <outlet property="tweetMessageLabel" destination="bL7-R2-4qA" id="Kc2-cL-oUi"/>
                                             <outlet property="usernameLabel" destination="izt-Pl-JwO" id="OJS-Rv-pt0"/>
+                                            <segue destination="mw0-Xz-KRR" kind="show" id="Dlw-oM-bSD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -180,10 +182,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="vfF-I3-rNC" secondAttribute="trailing" id="2ZC-mB-GH4"/>
-                            <constraint firstItem="vfF-I3-rNC" firstAttribute="top" secondItem="utu-bx-kEx" secondAttribute="top" id="9ee-VI-gtg"/>
-                            <constraint firstItem="vfF-I3-rNC" firstAttribute="leading" secondItem="utu-bx-kEx" secondAttribute="leading" id="OW6-lh-yvg"/>
-                            <constraint firstItem="Y0V-JB-3Jf" firstAttribute="top" secondItem="vfF-I3-rNC" secondAttribute="bottom" id="dEd-fm-96n"/>
+                            <constraint firstAttribute="trailing" secondItem="vfF-I3-rNC" secondAttribute="trailing" id="1YV-o4-qcg"/>
+                            <constraint firstItem="Y0V-JB-3Jf" firstAttribute="top" secondItem="vfF-I3-rNC" secondAttribute="bottom" id="AKT-Ja-gmA"/>
+                            <constraint firstItem="vfF-I3-rNC" firstAttribute="top" secondItem="utu-bx-kEx" secondAttribute="top" id="EAC-rQ-r6K"/>
+                            <constraint firstItem="vfF-I3-rNC" firstAttribute="leading" secondItem="utu-bx-kEx" secondAttribute="leading" id="Zi4-ML-1Iy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="S9P-rp-Puv">
@@ -208,6 +210,24 @@
                 <tapGestureRecognizer id="zsF-Om-j3k"/>
             </objects>
             <point key="canvasLocation" x="1346" y="134"/>
+        </scene>
+        <!--Tweet Details View Controller-->
+        <scene sceneID="fTq-hd-gfL">
+            <objects>
+                <viewController id="mw0-Xz-KRR" customClass="TweetDetailsViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yBn-7F-7VQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="806-fq-ykn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hfC-dF-a1v">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fBb-Em-XHn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2232.8000000000002" y="-140.77961019490255"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="XRc-Uw-wSX">
@@ -293,7 +313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFh-af-QpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2092" y="134"/>
+            <point key="canvasLocation" x="2236" y="505"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ABC-mY-rdK">
@@ -303,8 +323,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vxw-JC-IEv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
