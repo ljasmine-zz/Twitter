@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileView" customModule="Twitter" customModuleProvider="target">
+            <connections>
+                <outlet property="bannerImageView" destination="w4h-nR-rhU" id="w9Z-n1-ggE"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="1tq-a8-kUg"/>
+                <outlet property="profileImageView" destination="jG4-C3-Xl4" id="dBe-fH-0iy"/>
+                <outlet property="usernameLabel" destination="bki-Q2-M15" id="GzU-4a-Yy9"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="194"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jG4-C3-Xl4">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="75" id="Hxc-9X-xbh"/>
+                        <constraint firstAttribute="height" constant="75" id="hH6-mO-w4h"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w4h-nR-rhU">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="375" id="IQQ-Cv-mOM"/>
+                        <constraint firstAttribute="height" constant="131" id="mFn-wb-Q87"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="130" id="voh-y3-88v"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@ljasmine2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bki-Q2-M15">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="jG4-C3-Xl4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="100" id="2yQ-2q-X5h"/>
+                <constraint firstItem="w4h-nR-rhU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="9V1-O2-u2J"/>
+                <constraint firstItem="bki-Q2-M15" firstAttribute="leading" secondItem="jG4-C3-Xl4" secondAttribute="trailing" constant="9" id="KCM-ON-IeD"/>
+                <constraint firstItem="jG4-C3-Xl4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="17" id="QmW-0h-ShV"/>
+                <constraint firstItem="w4h-nR-rhU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YTf-4W-FBK"/>
+                <constraint firstAttribute="trailing" secondItem="w4h-nR-rhU" secondAttribute="trailing" id="ZZR-3Z-KFo"/>
+                <constraint firstItem="bki-Q2-M15" firstAttribute="top" secondItem="w4h-nR-rhU" secondAttribute="bottom" constant="9" id="k7t-48-2Zm"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="213.5" y="-22"/>
+        </view>
+    </objects>
+</document>

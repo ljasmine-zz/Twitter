@@ -10,6 +10,7 @@ import UIKit
 
 class Tweet: NSObject {
 
+    var id: Int?
     var profileName: String?
     var username: String?
     var text: String?
@@ -17,20 +18,30 @@ class Tweet: NSObject {
     var retweetCount: Int = 0
     var favoritesCount: Int = 0
     var profileUrl: URL?
+    var favorited: Bool?
+    var retweeted: Bool?
+    var retweetedStatus: NSDictionary?
+
+    static let favoriteToggleNotification = "favoriteNotification"
+    static let retweetToggleNotification = "retweetNotification"
 
     static let characterLimit = 140
     static let TWITTER_BLUE = UIColor(red: 29.0/255.0, green: 142.0/255.0, blue: 238.0/255.0, alpha: 1.0)
 
-
     init(dictionary: NSDictionary) {
 
         super.init()
-        
+
+        id = dictionary["id"] as? Int
         text = dictionary["text"] as? String
+        favorited = dictionary["favorited"] as? Bool
+        retweeted = dictionary["retweeted"] as? Bool
+
         retweetCount = ((dictionary["retweet_count"] as? Int) ?? 0)!
         favoritesCount = ((dictionary["favorite_count"] as? Int) ?? 0)!
         username = dictionary.value(forKeyPath: "user.screen_name") as? String
         profileName = dictionary.value(forKeyPath: "user.name") as? String
+        retweetedStatus = dictionary["retweeted_status"] as? NSDictionary
 
         let urlString = dictionary.value(forKeyPath: "user.profile_image_url") as? String
         if let url = urlString {

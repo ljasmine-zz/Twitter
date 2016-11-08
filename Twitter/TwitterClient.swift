@@ -41,6 +41,19 @@ class TwitterClient: BDBOAuth1SessionManager {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: User.userDidLogoutNotification), object: nil)
     }
 
+    func getUser (username: String, success: @escaping (User) -> (), failure: @escaping (Error) -> ()) {
+        get("1.1/users/show.json", parameters: ["screen_name": username], progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
+
+            let userDictionary = response as! NSDictionary
+            let user = User(dictionary: userDictionary)
+
+            success(user)
+            
+        }, failure: { (task: URLSessionDataTask?, error: Error) in
+            failure(error)
+        })
+    }
+
     func handleOpenUrl (url: NSURL) {
 
         let requestToken = BDBOAuth1Credential(queryString: url.query)
@@ -80,7 +93,7 @@ class TwitterClient: BDBOAuth1SessionManager {
 
     func homeTimeline(success: @escaping ([Tweet]) -> (), failure: @escaping (Error) -> ()) {
 
-        get("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (_: URLSessionDataTask, response: Any?) in
+        get("1.1/statuses/home_timeline.json", parameters: ["include_entities": true], progress: nil, success: { (_: URLSessionDataTask, response: Any?) in
 
                 let dictionaries = response as! [NSDictionary]
                 let tweets = Tweet.tweetsWithArray(dictionaries: dictionaries)
@@ -88,6 +101,62 @@ class TwitterClient: BDBOAuth1SessionManager {
             }, failure: { (task: URLSessionDataTask?, error: Error) in
                 failure(error)
         })
+    }
+
+    func favorite (id: Int, success: @escaping (Tweet) -> (), failure: @escaping (Error) -> ()) {
+
+        post("1.1/favorites/create.json", parameters: ["id": id], progress: nil, success: {(_: URLSessionDataTask, response: Any?) in
+            let tweet = Tweet(dictionary: response as! NSDictionary)
+            success(tweet)
+            }, failure: { (task: URLSessionDataTask?, error: Error) in
+                failure(error)
+        })
+    }
+
+    func undoFavorite (id: Int, success: @escaping (Tweet) -> (), failure: @escaping (Error) -> ()) {
+
+        post("1.1/favorites/destroy.json", parameters: ["id": id], progress: nil, success: {(_: URLSessionDataTask, response: Any?) in
+            let tweet = Tweet(dictionary: response as! NSDictionary)
+            success(tweet)
+            }, failure: { (task: URLSessionDataTask?, error: Error) in
+                failure(error)
+        })
+    }
+
+    func retweet (id: Int, success: @escaping (Tweet) -> (), failure: @escaping (Error) -> ()) {
+
+        post("1.1/statuses/retweet/\(id).json", parameters: ["id": id], progress: nil, success: {(_: URLSessionDataTask, response: Any?) in
+            let tweet = Tweet(dictionary: response as! NSDictionary)
+            success(tweet)
+            }, failure: { (task: URLSessionDataTask?, error: Error) in
+                failure(error)
+        })
+    }
+
+    func getTweet (id: Int, params: [String: Any?], success: @escaping (NSDictionary) -> (), failure: @escaping (Error) -> ()) {
+
+        post("1.1/statuses/show/\(id).json", parameters: params, progress: nil, success: {(_: URLSessionDataTask, response: Any?) in
+            let tweet = response as! NSDictionary
+            success(tweet)
+            }, failure: { (task: URLSessionDataTask?, error: Error) in
+                failure(error)
+        })
+    }
+
+    func undoRetweet (id: Int, success: @escaping (Tweet) -> (), failure: @escaping (Error) -> ()) {
+
+        getTweet(id: id, params: ["include_my_retweet": true], success: { (dict: NSDictionary) in
+            let retweet_id = dict.value(forKeyPath: "current_user_retweet.id_str")
+            self.post("1.1/statuses/unretweet/\(retweet_id).json", parameters: ["id": retweet_id], progress: nil, success: {(_: URLSessionDataTask, response: Any?) in
+                let tweet = Tweet(dictionary: response as! NSDictionary)
+                success(tweet)
+                }, failure: { (task: URLSessionDataTask?, error: Error) in
+                    failure(error)
+            })
+
+        }) { (error: Error) in
+            failure(error)
+        }
     }
 
     func postTweet (text: String, success: @escaping () -> (), failure: @escaping (Error) -> ()) {
